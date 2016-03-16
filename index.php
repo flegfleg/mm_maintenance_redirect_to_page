@@ -2,7 +2,7 @@
 /*
  * Plugin Name: Maintenance redirect to page
  * Version: 1.0
- * Plugin URI: http://www.fleg.de/
+ * Plugin URI: https://github.com/flegfleg/mm_maintenance_redirect_to_page/
  * Description: Redirect all visitors to a page.
  * Author: Florian Egermann
  * Author URI: http://www.fleg.de/
