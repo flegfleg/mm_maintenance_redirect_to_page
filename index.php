@@ -11,7 +11,7 @@
  * Domain Path: /languages
  * Text Domain: mm-maintenance-redirect
  * Requires at least: 4.0
- * Tested up to: 4.4
+ * Tested up to: 4.4.2
  *
  *
  * @package WordPress
