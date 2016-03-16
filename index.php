@@ -1,11 +1,15 @@
 <?php
 /*
- * Plugin Name: Maintenance redirect to page
+ * Plugin Name: MM Maintenance redirect to page
  * Version: 1.0
  * Plugin URI: https://github.com/flegfleg/mm_maintenance_redirect_to_page/
  * Description: Redirect all visitors to a page.
  * Author: Florian Egermann
  * Author URI: http://www.fleg.de/
+ * License: GPL3
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Domain Path: /languages
+ * Text Domain: mm-maintenance-redirect
  * Requires at least: 4.0
  * Tested up to: 4.4
  *
@@ -14,6 +18,18 @@
  * @author Florian Egermann
  * @since 1.0.0
  */
+
+/* * * * * * * * * * * * * *
+ * Localization
+ * * * * * * * * * * * * * *
+ */
+
+add_action('plugins_loaded', 'mm_maintenance_redirect_textdomain');
+
+function mm_maintenance_redirect_textdomain() {
+    load_plugin_textdomain( 'mm-maintenance-redirect', false, dirname( plugin_basename(__FILE__) ) . '/lang/' );
+}
+
 
 /* * * * * * * * * * * * * *
  * Settings API
@@ -25,7 +41,7 @@ add_action( 'admin_init', 'mm_maintenance_redirect_settings_init' );
 
 function mm_maintenance_redirect_add_admin_menu(  ) { 
 
-    add_options_page( 'Maintenance Redirect', 'Maintenance Redirect', 'manage_options', 'maintenance_redirect', 'mm_maintenance_redirect_options_page' );
+    add_options_page( 'Maintenance Redirect', 'Maintenance Redirect', 'manage_options', 'mm_maintenance_redirect', 'mm_maintenance_redirect_options_page' );
 }
 
 
@@ -35,14 +51,14 @@ function mm_maintenance_redirect_settings_init(  ) {
 
     add_settings_section(
         'mm_maintenance_redirect_pluginPage_section', 
-        __( '', 'mm_maintenance_redirect' ), 
+        '', 
         'mm_maintenance_redirect_settings_section_callback', 
         'pluginPage'
     );
 
     add_settings_field( 
         'redirect_checkbox', 
-        __( 'Enable redirect', 'mm_maintenance_redirect' ), 
+        __( 'Enable redirect', 'mm-maintenance-redirect' ), 
         'mm_maintenance_redirect_checkbox_enabled_render', 
         'pluginPage', 
         'mm_maintenance_redirect_pluginPage_section' 
@@ -50,7 +66,7 @@ function mm_maintenance_redirect_settings_init(  ) {
 
     add_settings_field( 
         'select_page', 
-        __( 'Redirect to:', 'mm_maintenance_redirect' ), 
+        __( 'Redirect to:', 'mm-maintenance-redirect' ), 
         'mm_maintenance_redirect_select_page_render', 
         'pluginPage', 
         'mm_maintenance_redirect_pluginPage_section' 
@@ -86,7 +102,7 @@ function mm_maintenance_redirect_select_page_render(  ) {
 
 function mm_maintenance_redirect_settings_section_callback(  ) { 
 
-    echo __( 'Select the page you want to redirect your visitors to and click the checkbox. That´s it.', 'mm_maintenance_redirect' );
+    echo __( 'Select the page you want to redirect your visitors to and click the checkbox.', 'mm-maintenance-redirect' );
 
 }
 
@@ -133,7 +149,6 @@ function mm_maintance_mode_redirect( ) {
         exit;
     }
 }
-
 
 
  ?>

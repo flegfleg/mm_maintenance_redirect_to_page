@@ -1,0 +1,29 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: MM Maintenance redirect to page\n"
+"POT-Creation-Date: 2016-03-16 19:54+0100\n"
+"PO-Revision-Date: 2016-03-16 19:59+0100\n"
+"Last-Translator: Florian Egermann <florian@macht-medien.de>\n"
+"Language-Team: \n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.5\n"
+"X-Poedit-Basepath: ../\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: index.php:61
+msgid "Enable redirect"
+msgstr "Umletiung aktivieren"
+
+#: index.php:69
+msgid "Redirect to:"
+msgstr "Umleitungsziel:"
+
+#: index.php:105
+msgid "Select the page you want to redirect your visitors to and click the checkbox."
+msgstr "Wähle die Seite aus, auf die Besucher weiter geleitet werden sollen und aktiviere die Checkbox. "
