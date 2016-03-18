@@ -1,0 +1,47 @@
+# Copyright (C) 2016 MM Maintenance redirect to page
+# This file is distributed under the same license as the MM Maintenance redirect to page package.
+msgid ""
+msgstr ""
+"Project-Id-Version: MM Maintenance redirect to page 1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/mm-maintenance-"
+"redirect-to-page\n"
+"POT-Creation-Date: 2016-03-17 15:12:21+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: index.php:61
+msgid "Enable redirect"
+msgstr ""
+
+#: index.php:69
+msgid "Redirect to:"
+msgstr ""
+
+#: index.php:105
+msgid ""
+"Select the page you want to redirect your visitors to and click the checkbox."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "MM Maintenance redirect to page"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/flegfleg/mm_maintenance_redirect_to_page/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Redirect all visitors to a page."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Florian Egermann"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.fleg.de/"
+msgstr ""
