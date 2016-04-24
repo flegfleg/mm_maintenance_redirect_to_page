@@ -6,12 +6,12 @@ Stable tag: 1.0.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-Simple maintenance mode wordpress plugin – redirect all vistiors to a page of your choosing.
+Simple maintenance mode wordpress plugin – redirect all vistiors to a page of your choosing. 
 
 
 == Description ==
 
-Unlike other "maintenance mode" plugins, this plugin lets you redirect users to one of your existing pages. 
+Unlike other "maintenance mode" plugins, this plugin lets you redirect users to one of your existing pages. Usefull if you want to edit content on your site and redirect visitors to an existing page while you do so. 
 
 == Installation ==
 
