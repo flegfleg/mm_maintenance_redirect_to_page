@@ -1,9 +1,9 @@
 <?php
 /*
  * Plugin Name: MM Maintenance redirect to page
- * Version: 1.0
+ * Version: 1.1.
  * Plugin URI: https://github.com/flegfleg/mm_maintenance_redirect_to_page/
- * Description: Redirect all visitors to a page.
+ * Description: Redirect all visitors to a page of your choosing.
  * Author: Florian Egermann
  * Author URI: http://www.fleg.de/
  * License: GPL3
@@ -11,7 +11,7 @@
  * Domain Path: /languages
  * Text Domain: mm-maintenance-redirect
  * Requires at least: 4.0
- * Tested up to: 4.4.2
+ * Tested up to: 4.5.
  *
  *
  * @package WordPress
@@ -144,7 +144,7 @@ function mm_maintance_mode_redirect( ) {
 
     $options = get_option( 'mm_maintenance_redirect_settings' );
 
-    if ( ! is_page( $options['select_page'] ) && isset ( $options['redirect_checkbox'] ) ) {
+    if ( ! is_page( $options['select_page'] ) && isset ( $options['redirect_checkbox'] ) && ! ( current_user_can( 'manage_options' ) ) ) {
         wp_redirect( get_permalink( $options['select_page'] ) );
         exit;
     }
