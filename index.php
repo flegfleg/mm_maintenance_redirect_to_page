@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: MM Maintenance redirect to page
- * Version: 1.1.
+ * Version: 1.1
  * Plugin URI: https://github.com/flegfleg/mm_maintenance_redirect_to_page/
  * Description: Redirect all visitors to a page of your choosing.
  * Author: Florian Egermann
@@ -11,7 +11,7 @@
  * Domain Path: /languages
  * Text Domain: mm-maintenance-redirect
  * Requires at least: 4.0
- * Tested up to: 4.5.
+ * Tested up to: 4.5
  *
  *
  * @package WordPress
