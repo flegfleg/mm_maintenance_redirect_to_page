@@ -1,17 +1,17 @@
 === MM Maintenance redirect to page ===
 Tags: redirect, maintenance, pages
 Requires at least: 4.0
-Tested up to: 4.2.1
-Stable tag: 1.0.1
+Tested up to: 4.5
+Stable tag: 1.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-Simple maintenance mode wordpress plugin – redirect all vistiors to a page of your choosing. 
+Simple maintenance mode  – redirect all visitors (except admins) to a page of your choosing. 
 
 
 == Description ==
 
-Unlike other "maintenance mode" plugins, this plugin lets you redirect users to one of your existing pages. Usefull if you want to edit content on your site and redirect visitors to an existing page while you do so. 
+Unlike other "maintenance mode" plugins, this plugin lets you redirect visitors to one of your existing pages (no need to edit a maintenance template to make it look like your website).
 
 == Installation ==
 
@@ -22,3 +22,9 @@ Unlike other "maintenance mode" plugins, this plugin lets you redirect users to 
 == Screenshots ==
 
 1. Plugin Settings Screen 
+
+== Changelog ==
+
+= 1.2 =
+
+* Fixed: Now works correctly even if PHP shorthand isn´t enabled on the server.  

@@ -1,14 +1,13 @@
 <?php
 /*
  * Plugin Name: MM Maintenance redirect to page
- * Version: 1.1
+ * Version: 1.2
  * Plugin URI: https://github.com/flegfleg/mm_maintenance_redirect_to_page/
  * Description: Redirect all visitors to a page of your choosing.
  * Author: Florian Egermann
  * Author URI: http://www.fleg.de/
  * License: GPL3
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Domain Path: /languages
  * Text Domain: mm-maintenance-redirect
  * Requires at least: 4.0
  * Tested up to: 4.5
@@ -81,7 +80,7 @@ function mm_maintenance_redirect_checkbox_enabled_render(  ) {
     $options = get_option( 'mm_maintenance_redirect_settings' );
     $checked = ( isset ( $options['redirect_checkbox'] ) ) ? 'checked' : '';
     ?>
-    <input type='checkbox' name='mm_maintenance_redirect_settings[redirect_checkbox]' <?=$checked; ?> value='1'>
+    <input type='checkbox' name='mm_maintenance_redirect_settings[redirect_checkbox]' <?php echo $checked; ?> value='1'>
     <?php
 
 }
@@ -128,8 +127,8 @@ function mm_maintenance_redirect_options_page(  ) {
 function mm_maintenance_redirect_render_options( $options ) {
     $pages = get_pages();
     foreach ($pages as $page ) { ?>
-            <option value='<?=$page->ID ?>' <?php selected( $options['select_page'], $page->ID ); ?>><?=$page->post_title ?></option>
-            <?
+            <option value='<?php echo $page->ID ?>' <?php selected( $options['select_page'], $page->ID ); ?>><?php echo $page->post_title ?></option>
+            <?php
         }
     }
 
@@ -149,6 +148,4 @@ function mm_maintance_mode_redirect( ) {
         exit;
     }
 }
-
-
- ?>
+?>
