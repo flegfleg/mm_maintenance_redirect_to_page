@@ -198,7 +198,7 @@ function mm_maintance_mode_redirect( ) {
 	
     if ( ! is_page( $excluded_pages ) && isset ( $options['redirect_checkbox'] ) && ! ( current_user_can( 'manage_options' ) ) ) {
 		
-		echo 'redirect';
+		wp_redirect( get_permalink( $options['select_page'] ) );
 		
         exit;
     }
