@@ -71,7 +71,14 @@ function mm_maintenance_redirect_settings_init(  ) {
         'mm_maintenance_redirect_pluginPage_section' 
     );
 
-
+	add_settings_field( 
+        'exclude_pages', 
+        __( 'Exclude Pages:', 'mm-maintenance-redirect' ), 
+        'mm_maintenance_redirect_exclude_pages_render', 
+        'pluginPage', 
+        'mm_maintenance_redirect_pluginPage_section' 
+    );
+	
 }
 
 
@@ -95,6 +102,50 @@ function mm_maintenance_redirect_select_page_render(  ) {
     </select>
 
 <?php
+
+}
+
+function mm_maintenance_redirect_exclude_pages_render(  ) { 
+
+    $options = get_option( 'mm_maintenance_redirect_settings' );
+	$excluded_pages = maybe_unserialize( (isset ( $options['excluded_pages'] )) ? $options['excluded_pages'] : array() );
+	
+	$args = array(
+		'post_type'              => array( 'page' ),
+		'post_status'            => array( 'Publish' ),
+		'nopaging'               => true,
+		'posts_per_page'         => '-1',
+	);
+
+	$query = new WP_Query( $args );
+	
+	_e('If you want some pages to be visible without being redirected to maintenance page, check them here.','mm-maintenance-redirect');
+	
+	if ( $query->have_posts() ) {
+		?> <ul> <?php
+		while ( $query->have_posts() ) {
+			$query->the_post();
+			
+			$postID = get_the_ID(); // da modificare per compatibilità con WPML usando icl_object_id(ID, type, return_original_if_missing,language_code)
+			$checked = ( in_array($postID, $excluded_pages) ) ? 'checked' : '';
+			
+			?>
+			<li>
+				<label for ='page_<?php echo $postID; ?>'>
+					<input type='checkbox' id='page_<?php echo $postID; ?>' name='mm_maintenance_redirect_settings[excluded_pages][]' <?php echo $checked; ?> value='<?php echo $postID; ?>'> 
+					<?php echo get_the_title(); ?>  <small><?php edit_post_link(); ?> - <a href='<?php the_permalink(); ?>'><?php _e('View') ?></a></small>
+				</label>
+			</li>
+			
+			<?php
+			
+			
+		}
+		?> </ul> <?php
+	}
+
+	// Restore original Post Data
+	wp_reset_postdata();
 
 }
 
@@ -142,9 +193,13 @@ add_action( 'template_redirect', 'mm_maintance_mode_redirect' );
 function mm_maintance_mode_redirect( ) {
 
     $options = get_option( 'mm_maintenance_redirect_settings' );
-
-    if ( ! is_page( $options['select_page'] ) && isset ( $options['redirect_checkbox'] ) && ! ( current_user_can( 'manage_options' ) ) ) {
-        wp_redirect( get_permalink( $options['select_page'] ) );
+	$excluded_pages = maybe_unserialize( (isset ( $options['excluded_pages'] )) ? $options['excluded_pages'] : array() );
+	array_push($excluded_pages,$options['select_page']);
+	
+    if ( ! is_page( $excluded_pages ) && isset ( $options['redirect_checkbox'] ) && ! ( current_user_can( 'manage_options' ) ) ) {
+		
+		echo 'redirect';
+		
         exit;
     }
 }
